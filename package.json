@@ -1,0 +1,42 @@
+{
+  "name": "fiubacaresback",
+  "version": "1.0.0",
+  "description": "Backend for FiubaCares App",
+  "main": "src/server.js",
+  "scripts": {
+    "test": "mocha",
+    "start": "node src/server",
+    "start.dev": "nodemon src"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/soyarielruiz/FiubaCaresBack.git"
+  },
+  "author": "Grupo 3",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/soyarielruiz/FiubaCaresBack/issues"
+  },
+  "homepage": "https://github.com/soyarielruiz/FiubaCaresBack#readme",
+  "dependencies": {
+    "body-parser": "latest",
+    "chai": "^4.2.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "jwt-simple": "^0.5.6",
+    "mocha": "^7.1.2",
+    "moment": "^2.25.3",
+    "mongodb": "^3.5.7",
+    "mongoose": "^5.9.14"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  },
+  "nodemonConfig": {
+    "ignore": [
+      "test/*",
+      "docs/*"
+    ],
+    "delay": "2500"
+  }
+}
