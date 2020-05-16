@@ -2,7 +2,7 @@
 let User = require('./../models/user');
 
 
-function getUser(req, res) {
+exports.getUser = function(req, res) {
 
     const userId = req.params.username;
 
@@ -24,5 +24,3 @@ function getUser(req, res) {
 
     });
 }
-
-module.exports = getUser;

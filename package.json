@@ -10,14 +10,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/soyarielruiz/FiubaCaresBack.git"
+    "url": "git+https://github.com/maximilianopagani/FiubaCaresBack.git"
   },
   "author": "Grupo 3",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/soyarielruiz/FiubaCaresBack/issues"
+    "url": "https://github.com/maximilianopagani/FiubaCaresBack/issues"
   },
-  "homepage": "https://github.com/soyarielruiz/FiubaCaresBack#readme",
+  "homepage": "https://github.com/maximilianopagani/FiubaCaresBack#readme",
   "dependencies": {
     "body-parser": "latest",
     "chai": "^4.2.0",

@@ -8,6 +8,10 @@ const md_auth = require('../middlewares/authenticated');
 // Creamos una ruta para los métodos que tenemos en nuestros controladores
 api.get('/user/:username', md_auth.ensureAuth, UserController.getUser);
 
+api.get('/', (req, res) => {
+    res.send('acp1-2020 api');
+});
+
 module.exports = api;
 
 /*

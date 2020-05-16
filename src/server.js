@@ -5,21 +5,26 @@ const mongoose = require('mongoose');
 const bodyParser = require("body-parser");
 const DB = require('./database/connection');
 const app = require('./app');
+const port = process.env.PORT;
+const dbName = "FiubaCMS";
 
 const userRouter = require('./routes/user_rest');
 require('dotenv').config();
-
 
 mongoose.Promise = global.Promise;
 
 mongoose.connect(process.env.DB_URI, { useNewUrlParser: true, useUnifiedTopology:true })
     .then(() => {
         // Cuando se realiza la conexión, lanzamos este mensaje por consola
-        console.log("La conexión a la base de datos curso_mean_social se ha realizado correctamente")
+        console.log(`La conexión a la base de datos ${dbName} en ${process.env.DB_HOST}se ha realizado correctamente`)
 
         // CREAR EL SERVIDOR WEB CON NODEJS
         app.listen(port, () => {
-            console.log("servidor corriendo en http://localhost:3800");
+            console.log(`servidor corriendo en ${port}`);
+        });
+
+        app.get('/', (req, res) => {
+            res.status(200).send('acp1-2020');
         });
     })
     // Si no se conecta correctamente escupimos el error
