@@ -1,3 +1,4 @@
+/*
 const MongoClient = require('mongodb').MongoClient;
 require('dotenv').config();
 
@@ -16,13 +17,13 @@ class Connection {
                 throw (err); // this should be "caught" by the calling function
             }
             return client;
-            /*const dbObject = client.db(dbName);
+            /!*const dbObject = client.db(dbName);
             const dbCollection = dbObject.collection(collectionName);
             console.log("[MongoDB connection] SUCCESS");
 
-            return dbCollection;*/
+            return dbCollection;*!/
         });
     }
 }
 
-module.exports = Connection;
+module.exports = Connection;*/

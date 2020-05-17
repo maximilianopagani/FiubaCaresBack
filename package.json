@@ -6,7 +6,7 @@
   "scripts": {
     "test": "mocha",
     "start": "node src/server",
-    "start.dev": "nodemon src"
+    "start.dev": "nodemon src/server"
   },
   "repository": {
     "type": "git",
