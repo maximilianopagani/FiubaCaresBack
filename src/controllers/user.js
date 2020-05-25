@@ -1,26 +1,51 @@
 'use strict';
-let User = require('./../models/user');
+const Users = require('./../models/user');
 
+exports.getUser = async function(req, res, next) {
+    const userName = req.params.username || "";
+    const pass = req.params.password || "";
 
-exports.getUser = function(req, res) {
-
-    const userId = req.params.username;
-
-    User.find({ user: userId }, (error, user) => {
-
-        if(error) {
-            return res.status(500).send({message: 'Error en la petición'});
-        }
-
-        if(!user) {
-            return res.status(404).send({message: 'EL usuario no existe'});
-        }
-
-        /*followThisUser(req.user.sub, userId).then((value) => {
-            user.password = undefined;*/
-        return res.status(200).send({
-            user
+    const result = await Users.find({
+        name: userName,
+        password: pass
+        })
+        .then(user => {
+            if (!user) {
+                return res.status(404)
+                    .send({
+                        message: "El usuario no existe"
+                    });
+            }
+            return user;
+        })
+        .catch((err) => {
+            console.error(err.message);
+            return res.status(500)
+                .send({
+                    message: "Error en la petición"
+                })
         });
+    console.log(result);
+    return res.status(200).send(result);
+};
 
-    });
-}
+exports.getAll = async function(req, res) {
+    const result = await Users.find({})
+        .then(user => {
+            if (!user)
+                return res.status(404)
+                .send({
+                    message: "El usuario no existe"
+                });
+
+            return user;
+        })
+        .catch((err) => {
+            console.error(err.message);
+            return res.status(500)
+                .send({
+                    message: "Error en la petición"
+                })
+        });
+    return res.status(200).send(result);
+};
