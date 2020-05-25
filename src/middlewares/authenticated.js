@@ -1,6 +1,6 @@
 const jwt = require('jwt-simple');
 const moment = require('moment');
-const secret = 'aKey';
+const secret = 'a random, long, sequence of characters that only the server knows';
 let payload;
 
 exports.ensureAuth = function(req, res, next){
@@ -8,10 +8,8 @@ exports.ensureAuth = function(req, res, next){
         return res.status(403).send({message: 'La peticion no tiene la cabecera de autenticación'});
     } else {
         const token = req.headers.authorization.replace(/['"]+/g, '');
-        console.log(token);
         try{
             payload = jwt.decode(token, secret);
-            console.log('AAA' + payload);
             if(payload.exp > moment().unix()){
                 return res.status(401).send({
                     message: 'EL token ha expirado'
