@@ -3,6 +3,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
 const userRoutes = require('./routes/user_rest');
+const eventRoutes = require('./routes/event_rest');
 require('./database/connection');
 require('dotenv').config();
 
@@ -25,6 +26,7 @@ app.use((req, res, next) => {
 
 // Cargamos las rutas
 app.use('/api', userRoutes);
+app.use('/api', eventRoutes);
 
 app.use((req, res, next) => {
     const error = new Error('Not found');
