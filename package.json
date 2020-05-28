@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/maximilianopagani/FiubaCaresBack#readme",
   "dependencies": {
+    "api-query-params": "^4.15.0",
     "body-parser": "latest",
     "chai": "^4.2.0",
     "dotenv": "^8.2.0",
