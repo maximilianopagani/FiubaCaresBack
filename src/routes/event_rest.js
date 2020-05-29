@@ -1,8 +1,8 @@
 'use strict';
 const express = require('express');
-const EventController = require('./../controllers/event');
-
 let api = express.Router();
+
+const EventController = require('./../controllers/event');
 const md_auth = require('../middlewares/authenticated');
 
 // Creamos una ruta para los métodos que tenemos en nuestros controladores
