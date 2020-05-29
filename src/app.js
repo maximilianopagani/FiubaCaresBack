@@ -2,10 +2,13 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
+const cors = require('cors');
 const userRoutes = require('./routes/user_rest');
 const eventRoutes = require('./routes/event_rest');
 require('./database/connection');
 require('dotenv').config();
+
+app.use(cors());
 
 //cargar middlewares
 //un metodo que se ejecuta antes que llegue a un controlador
