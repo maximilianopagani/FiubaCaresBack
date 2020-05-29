@@ -2,6 +2,9 @@
 const Users = require('./../models/user');
 
 exports.getUser = async function(req, res, next) {
+    res.header('Acess-Control-Allow-Origin', '*');
+    res.header('Acess-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
+
     const userName = req.params.username || "";
     const pass = req.params.password || "";
 
@@ -30,6 +33,9 @@ exports.getUser = async function(req, res, next) {
 };
 
 exports.getAll = async function(req, res) {
+    res.header('Acess-Control-Allow-Origin', '*');
+    res.header('Acess-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
+    
     const result = await Users.find({})
         .then(user => {
             if (!user)
