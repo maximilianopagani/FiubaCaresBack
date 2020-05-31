@@ -6,6 +6,7 @@ const EventSchema = Schema({
     title: String,
     description: String,
     author: String,
+    img_src: String,
     meeting_datetime: {
         type: Date,
         default: Date.now
