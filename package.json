@@ -29,7 +29,8 @@
     "mocha": "^7.1.2",
     "moment": "^2.25.3",
     "mongodb": "^3.5.7",
-    "mongoose": "^5.9.14"
+    "mongoose": "^5.9.14",
+    "mongoose-type-email": "^1.0.12"
   },
   "devDependencies": {
     "eslint": "^7.1.0",
