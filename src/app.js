@@ -6,6 +6,7 @@ const cors = require('cors');
 const userRoutes = require('./routes/user_rest');
 const eventRoutes = require('./routes/event_rest');
 const inscriptionRoutes = require('./routes/inscription_rest');
+const articleRoutes = require('./routes/article_rest');
 require('dotenv').config();
 
 app.use(cors());
@@ -31,6 +32,7 @@ app.use((req, res, next) => {
 app.use('/api', userRoutes);
 app.use('/api', eventRoutes);
 app.use('/api', inscriptionRoutes);
+app.use('/api', articleRoutes);
 
 
 app.use((req, res, next) => {
