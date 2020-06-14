@@ -64,15 +64,8 @@ exports.save = async function(req, res) {
 
 exports.update = async function(req, res) {
     let post = await Articles.findOne({ _id: req.params.article_id });
-    const { title, description, author, img_src, source, preview } = req.body || "";
 
-    post.title = title || post.title;
-    post.description = description || post.description;
-    post.author = author || post.author;
-    post.img_src = img_src || post.img_src;
-    post.source = source ? source : post.source;
-    post.preview = preview || post.preview;
-    post.created = new Date();
+    post.set(req.body);
 
     return _insertOrUpdate(post, res);
 };
