@@ -64,15 +64,8 @@ exports.save = async function(req, res) {
 
 exports.update = async function(req, res) {
     let post = await Events.findOne({ _id: req.params.event_id });
-    const { title, description, author, img_src, meeting_datetime, meeting_place, quota } = req.body || "";
-
-    post.title = title || post.title;
-    post.description = description || post.description;
-    post.author = author || post.author;
-    post.img_src = img_src || post.img_src;
-    post.meeting_datetime = meeting_datetime ? new Date(meeting_datetime) : post.meeting_datetime;
-    post.meeting_place = meeting_place || post.meeting_place;
-    post.quota = parseInt(quota) || post.quota;
+    req.body.meeting_datetime = req.body.meeting_datetime ? new Date(req.body.meeting_datetime) : post.meeting_datetime;
+    post.set(req.body);
 
     return _insertOrUpdate(post, res);
 };
