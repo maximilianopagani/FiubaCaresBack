@@ -64,7 +64,7 @@ exports.save = async function(req, res) {
 
 exports.update = async function(req, res) {
     let post = await Articles.findOne({ _id: req.params.article_id });
-
+    req.body.created = new Date();
     post.set(req.body);
 
     return _insertOrUpdate(post, res);
