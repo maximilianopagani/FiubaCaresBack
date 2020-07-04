@@ -32,7 +32,7 @@ exports.getAll = async function(req, res) {
     const result = await Events.find(filter)
                                 .skip(skip)
                                 .limit(limit)
-                                .sort(sort)
+                                .sort({meeting_datetime: -1})
                                 .select(projection)
                                 .populate(population)
                     .then(event => {
