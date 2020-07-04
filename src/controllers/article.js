@@ -32,7 +32,7 @@ exports.getAll = async function(req, res) {
     const result = await Articles.find(filter)
         .skip(skip)
         .limit(limit)
-        .sort(sort)
+        .sort({created: -1})
         .select(projection)
         .populate(population)
         .then((articles) => {

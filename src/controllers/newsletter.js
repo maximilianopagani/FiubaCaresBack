@@ -8,7 +8,7 @@ exports.getAll = async function(req, res) {
     const result = await Newsletter.find(filter)
         .skip(skip)
         .limit(limit)
-        .sort(sort)
+        .sort({creation_datetime: -1})
         .select(projection)
         .populate(population)
         .then(newsletters => {
